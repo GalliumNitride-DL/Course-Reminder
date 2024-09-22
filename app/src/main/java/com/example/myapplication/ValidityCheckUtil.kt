@@ -23,7 +23,12 @@ object ValidityCheckUtil {
 
     public fun isValidWeek(weeks: String): Boolean {
         if (weeks.isEmpty()) return false;
-        val regex = "^[0-9]*(,[0-9]+)*-[0-9]+(,[0-9]+)*[0-9]*$".toRegex();
-        return regex.matches(weeks);
+        val regex = "[0-9,-]*".toRegex();
+        if (!regex.matches(weeks)) return false;
+        val w = weeks.split(',');
+        for (week in w) {
+            if (week.startsWith('-') || week.endsWith('-') || week.split('-').size !in 1..2) return false;
+        }
+        return true;
     }
 }
