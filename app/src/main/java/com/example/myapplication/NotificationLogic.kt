@@ -27,7 +27,7 @@ class PinNotificationManager: Service() {
     }
 
     private fun createNotificationChannel() {
-        val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+        val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
         channel.description = CHANNEL_DESCRIPTION;
         channel.enableLights(false);
 
@@ -91,6 +91,7 @@ class NotificationBroadcastReceiver: BroadcastReceiver() {
             .setContentTitle(title)
             .setContentText(content)
             .setAutoCancel(false)
+            .setOnlyAlertOnce(true)
             .setSmallIcon(R.drawable.ic_launcher_background);
         val notification = notificationBuilder.build();
 
