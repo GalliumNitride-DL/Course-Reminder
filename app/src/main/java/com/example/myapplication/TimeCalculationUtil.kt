@@ -11,11 +11,12 @@ object TimeCalculationUtil {
 
     private lateinit var firstWeekDate: String;
     private lateinit var firstDay: LocalDateTime;
+    private lateinit var currentTime: LocalDateTime;
 
     private fun getFirstMonday(): LocalDateTime {
         val md = firstWeekDate.split('.');
         val m = md[0].toInt(); val d = md[1].toInt();
-        val now = LocalDateTime.now();
+        val now = currentTime;
         val localDate = LocalDate.of(now.year, m, d);
 
         val currentYear = now.year;
@@ -30,14 +31,13 @@ object TimeCalculationUtil {
 
     public fun getNextCourse(): CourseData? {
         firstWeekDate = MainActivity.firstWeekDate;
+        currentTime = LocalDateTime.now();
         firstDay = getFirstMonday();
         val coursesComingToday = MainActivity.courses.filter(::isTodayComingCourse).sortedWith(compareBy(CourseData::startHour, CourseData::startMinute));
         return if (coursesComingToday.isEmpty()) null else coursesComingToday.first();
     }
 
     private fun isTodayComingCourse(course: CourseData): Boolean {
-        val currentTime = LocalDateTime.now();
-
         if (!course.enabled) return false;
 
         val weeksBetween = ChronoUnit.WEEKS.between(firstDay.toLocalDate(), currentTime.toLocalDate()) + 1;
