@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.os.Environment
 import com.google.gson.Gson
 import java.io.File
 
@@ -9,13 +10,16 @@ object PersistentDataManager {
         val g = Gson();
         val json = g.toJson(courses);
 
-        val file = File(context.filesDir, "courses.json");
+        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+
+        val file = File(dir, "courseReminder_courses.json");
         file.printWriter().use { out -> out.print(json) };
     }
 
     fun loadCourseData(context: Context): MutableList<CourseData> {
         val g = Gson();
-        val file = File(context.filesDir, "courses.json");
+        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        val file = File(dir, "courseReminder_courses.json");
         return if (file.exists()) file.reader().use { reader -> g.fromJson(reader.readText(), Array<CourseData>::class.java).toMutableList() }
         else mutableListOf();
     }
