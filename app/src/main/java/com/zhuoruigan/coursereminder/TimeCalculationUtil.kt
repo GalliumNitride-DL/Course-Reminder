@@ -1,10 +1,7 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
-import android.util.Log
-import com.example.myapplication.CourseData
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 object TimeCalculationUtil {

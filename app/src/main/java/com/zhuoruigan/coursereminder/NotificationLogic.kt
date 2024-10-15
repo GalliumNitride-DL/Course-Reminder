@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
 import android.app.AlarmManager
 import android.app.Notification
@@ -10,8 +10,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
-import java.sql.Time
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 

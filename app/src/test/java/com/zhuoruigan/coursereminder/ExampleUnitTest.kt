@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
 import org.junit.Test
 

@@ -1,8 +1,4 @@
-package com.example.myapplication
-
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.time.Year
+package com.zhuoruigan.coursereminder
 
 object ValidityCheckUtil {
 

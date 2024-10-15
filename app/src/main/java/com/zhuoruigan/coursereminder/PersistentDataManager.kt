@@ -1,25 +1,29 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
+import android.app.Activity
 import android.content.Context
-import android.os.Environment
 import com.google.gson.Gson
 import java.io.File
 
 object PersistentDataManager {
-    fun saveCourseData(context: Context, courses: MutableList<CourseData>) {
+    private const val REQUEST_CODE_READ = 100;
+    private const val REQUEST_CODE_WRITE = 200;
+
+    fun saveCourseData(activity: Activity, courses: MutableList<CourseData>) {
         val g = Gson();
         val json = g.toJson(courses);
 
-        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        //val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-        val file = File(dir, "courseReminder_courses.json");
+        val file = File(activity.getExternalFilesDir(null), "courses.json");
         file.printWriter().use { out -> out.print(json) };
     }
 
-    fun loadCourseData(context: Context): MutableList<CourseData> {
+    fun loadCourseData(activity: Activity): MutableList<CourseData> {
         val g = Gson();
-        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        val file = File(dir, "courseReminder_courses.json");
+
+        //val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        val file = File(activity.getExternalFilesDir(null), "courses.json");
         return if (file.exists()) file.reader().use { reader -> g.fromJson(reader.readText(), Array<CourseData>::class.java).toMutableList() }
         else mutableListOf();
     }

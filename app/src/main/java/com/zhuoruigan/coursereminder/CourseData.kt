@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
 data class CourseData(
     val name: String = "微积分A",

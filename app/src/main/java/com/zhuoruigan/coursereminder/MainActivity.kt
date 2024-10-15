@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
-import com.example.myapplication.ValidityCheckUtil
 
 
 class MainActivity : ComponentActivity() {
@@ -22,8 +20,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var addCourseButton: Button;
     private lateinit var saveDataButton: Button;
     private lateinit var firstWeekText: EditText;
-
-    private lateinit var pinNotificationManager: PinNotificationManager;
 
     companion object {
         lateinit var courses: MutableList<CourseData>;

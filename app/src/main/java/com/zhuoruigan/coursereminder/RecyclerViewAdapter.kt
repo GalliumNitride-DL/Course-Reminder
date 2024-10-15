@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.zhuoruigan.coursereminder
 
 import android.text.Editable
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.Switch
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.ValidityCheckUtil
 
 class RecyclerViewAdapter(private val courses: MutableList<CourseData>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
