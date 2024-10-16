@@ -1,7 +1,7 @@
 # Course-Reminder
 A tool to show the upcoming course of your curriculum in your notification bar!
 
-*so that you won't forget to take your classes anymore XD*
+~~*so that you won't forget to take your classes anymore XD*~~
 
 ## Important Note
 This is my first trial to develop using Android Studio(and Kotlin as well) so it is certain that there will be tons of low-level mistakes and not-recommended practices in this repo.
